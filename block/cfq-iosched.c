@@ -20,18 +20,27 @@
  * tunables
  */
 /* max queue in one round of service */
-static const int cfq_quantum = 8;
-static const int cfq_fifo_expire[2] = { HZ / 4, HZ / 8 };
+//static const int cfq_quantum = 8;
+//static const int cfq_fifo_expire[2] = { HZ / 4, HZ / 8 }; orig
+static const int cfq_quantum = 4;
+static const int cfq_fifo_expire[2] = { 80, 330};
 /* maximum backwards seek, in KiB */
-static const int cfq_back_max = 16 * 1024;
+//static const int cfq_back_max = 16 * 1024; orig
+static const int cfq_back_max = 12582912;
 /* penalty of a backwards seek */
-static const int cfq_back_penalty = 2;
+/*static const int cfq_back_penalty = 2;
 static const int cfq_slice_sync = HZ / 10;
-static int cfq_slice_async = HZ / 25;
+static int cfq_slice_async = HZ / 25; orig*/
+static const int cfq_back_penalty = 1;
+static const int cfq_slice_sync = 60;
+static int cfq_slice_async = 50;
 static const int cfq_slice_async_rq = 2;
-static int cfq_slice_idle = HZ / 125;
+/*static int cfq_slice_idle = HZ / 125;
 static int cfq_group_idle = HZ / 125;
-static const int cfq_target_latency = HZ * 3/10; /* 300 ms */
+static const int cfq_target_latency = HZ * 3/10; /* 300 ms  orig*/
+static int cfq_slice_idle = 0;
+static int cfq_group_idle = 0;
+static const int cfq_target_latency = 300; /* 300 ms */
 static const int cfq_hist_divisor = 4;
 
 /*
@@ -4270,7 +4279,7 @@ static int __init cfq_init(void)
 {
 	/*
 	 * could be 0 on HZ < 1000 setups
-	 */
+	 
 	if (!cfq_slice_async)
 		cfq_slice_async = 1;
 	if (!cfq_slice_idle)
@@ -4281,7 +4290,8 @@ static int __init cfq_init(void)
 		cfq_group_idle = 1;
 #else
 		cfq_group_idle = 0;
-#endif
+#endif orig */
+
 	if (cfq_slab_setup())
 		return -ENOMEM;
 
