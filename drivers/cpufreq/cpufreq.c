@@ -4,6 +4,7 @@
  *  Copyright (C) 2001 Russell King
  *            (C) 2002 - 2003 Dominik Brodowski <linux@brodo.de>
  *
+ *            (c) 2013 The XPerience Project added CPU and GPU overclock by Klozz jesus Aka TeamMEX in XDA
  *  Oct 2005 - Ashok Raj <ashok.raj@intel.com>
  *	Added handling for CPU hotplug
  *  Feb 2006 - Jacob Shin <jacob.shin@amd.com>
