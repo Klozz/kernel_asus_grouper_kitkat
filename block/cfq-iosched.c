@@ -23,7 +23,7 @@
 //static const int cfq_quantum = 8;
 //static const int cfq_fifo_expire[2] = { HZ / 4, HZ / 8 }; orig
 static const int cfq_quantum = 4;
-static const int cfq_fifo_expire[2] = { 80, 330};
+static const int cfq_fifo_expire[2] = { 42, 11};
 /* maximum backwards seek, in KiB */
 //static const int cfq_back_max = 16 * 1024; orig
 static const int cfq_back_max = 12582912;
@@ -32,8 +32,8 @@ static const int cfq_back_max = 12582912;
 static const int cfq_slice_sync = HZ / 10;
 static int cfq_slice_async = HZ / 25; orig*/
 static const int cfq_back_penalty = 1;
-static const int cfq_slice_sync = 60;
-static int cfq_slice_async = 50;
+static const int cfq_slice_sync = 8;
+static int cfq_slice_async = 7;
 static const int cfq_slice_async_rq = 2;
 /*static int cfq_slice_idle = HZ / 125;
 static int cfq_group_idle = HZ / 125;
