@@ -3,7 +3,6 @@
  *
  *  Copyright (C) 2001 Russell King
  *            (C) 2002 - 2003 Dominik Brodowski <linux@brodo.de>
- *            (c) 2013 The XPerience Project added CPU and GPU overclock by Klozz jesus Aka TeamMEX in XDA
  *
  *  Oct 2005 - Ashok Raj <ashok.raj@intel.com>
  *	Added handling for CPU hotplug
@@ -1721,6 +1720,11 @@ int __cpufreq_driver_target(struct cpufreq_policy *policy,
 	pr_debug("target for CPU %u: %u kHz, relation %u\n", policy->cpu,
 		target_freq, relation);
 	trace_cpu_scale(policy->cpu, policy->cur, POWER_CPU_SCALE_START);
+
+//cpufreq: break earlier if the target_freq is equal to the current freq. klzz
+  if (target_freq == policy->cur)
+    return 0;
+
 	if (cpu_online(policy->cpu) && cpufreq_driver->target)
 		retval = cpufreq_driver->target(policy, target_freq, relation);
 	trace_cpu_scale(policy->cpu, target_freq, POWER_CPU_SCALE_DONE);
