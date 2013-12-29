@@ -3,6 +3,7 @@
  *
  *  Copyright (C) 2001 Russell King
  *            (C) 2002 - 2003 Dominik Brodowski <linux@brodo.de>
+ *            (c) 2013 The XPerience Project added CPU and GPU overclock by Klozz jesus Aka TeamMEX in XDA
  *
  *  Oct 2005 - Ashok Raj <ashok.raj@intel.com>
  *	Added handling for CPU hotplug
@@ -792,6 +793,11 @@ static ssize_t store_gpu_oc(struct cpufreq_policy *policy, const char *buf, size
 			new_volt = 1500;
 			vde->dvfs->millivolts[i] = new_volt;
 			pr_info("NEW VOLTAGES > 700: %d\n", vde->dvfs->millivolts[i]);
+		}
+                if (gpu_freq >= 750 && gpu_freq < 800) {
+			new_volt = 1600;
+			vde->dvfs->millivolts[i] = new_volt;
+			pr_info("NEW VOLTAGES > 800: %d\n", vde->dvfs->millivolts[i]);
 		}
 
 		vde->dvfs->freqs[i] = new_gpu_freq;
@@ -2237,6 +2243,5 @@ static int __init cpufreq_core_init(void)
 	return 0;
 }
 core_initcall(cpufreq_core_init);
-
 
 
