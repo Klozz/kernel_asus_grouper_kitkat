@@ -1,5 +1,6 @@
 /*
  *  CFQ, or complete fairness queueing, disk scheduler.
+ * (C) 2013 The XPerience Project TeamMEX
  *
  *  Based on ideas from a previously unfinished io
  *  scheduler (round robin per-process disk scheduling) and Andrea Arcangeli.
@@ -23,7 +24,7 @@
 //static const int cfq_quantum = 8;
 //static const int cfq_fifo_expire[2] = { HZ / 4, HZ / 8 }; orig
 static const int cfq_quantum = 4;
-static const int cfq_fifo_expire[2] = { 42, 11};
+static const int cfq_fifo_expire[2] = { 33, 8};
 /* maximum backwards seek, in KiB */
 //static const int cfq_back_max = 16 * 1024; orig
 static const int cfq_back_max = 12582912;
@@ -32,8 +33,8 @@ static const int cfq_back_max = 12582912;
 static const int cfq_slice_sync = HZ / 10;
 static int cfq_slice_async = HZ / 25; orig*/
 static const int cfq_back_penalty = 1;
-static const int cfq_slice_sync = 8;
-static int cfq_slice_async = 7;
+static const int cfq_slice_sync = 6;
+static int cfq_slice_async = 5;
 static const int cfq_slice_async_rq = 2;
 /*static int cfq_slice_idle = HZ / 125;
 static int cfq_group_idle = HZ / 125;
