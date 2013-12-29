@@ -3,6 +3,7 @@
  *
  * Copyright (C) 2010 Google, Inc.
  * Copyright (C) 2010-2012 NVIDIA Corporation
+*            (c) 2013 The XPerience Project added CPU and GPU overclock by Klozz jesus Aka TeamMEX in XDA
  *
  * Author:
  *	Colin Cross <ccross@android.com>
@@ -103,7 +104,7 @@ static struct board_info pmu_board_info;
 static struct board_info display_board_info;
 static struct board_info camera_board_info;
 
-static int pmu_core_edp = 1550;	/* default 1.2V EDP limit */
+static int pmu_core_edp = 1650;	/* default 1.2V EDP limit */
 static int board_panel_type;
 static enum power_supply_type pow_supply_type = POWER_SUPPLY_TYPE_MAINS;
 
